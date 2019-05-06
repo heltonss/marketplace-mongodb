@@ -13,6 +13,9 @@ routes.use(authMiddleware)
 routes.get('/ads', controllers.AdController.index)
 routes.post('/ads', controllers.AdController.store)
 
+//purchase
+routes.post('/purchases', controllers.PurchaseController.store)
+
 routes.get('/', (req, res) => {
   res.json({ hello: 'hello world' })
 })
