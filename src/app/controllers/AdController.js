@@ -1,15 +1,13 @@
-const Ad = require('./../models/Ad')
+const Ad = require('../models/Ad')
 
 class AdController {
-  async index (req, res) {
+  async index(req, res) {
     const filters = {}
-    console.log(req.query.title)
 
     if (req.query.price_min || req.query.price_max) {
       filters.price = {}
 
       if (req.query.price_min) {
-        console.log(req.query.price_min)
         filters.price.$gte = req.query.price_min
       }
 

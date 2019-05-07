@@ -16,4 +16,11 @@ routes.get('/ads/:id', controllers.AdController.show)
 routes.put('/ads/:id', controllers.AdController.update)
 routes.delete('/ads/:id', controllers.AdController.destroy)
 
+//purchase
+routes.post('/purchases', controllers.PurchaseController.store)
+
+routes.get('/', (req, res) => {
+  res.json({ hello: 'hello world' })
+})
+
 module.exports = routes
