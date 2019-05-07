@@ -9,7 +9,6 @@ routes.post('/users', controllers.UserController.store)
 routes.post('/sessions', controllers.SessionController.store)
 
 routes.use(authMiddleware)
-routes.get('/users', (req, res) => res.json({ ok: true }))
 
 routes.get('/ads', controllers.AdController.index)
 routes.post('/ads', controllers.AdController.store)
