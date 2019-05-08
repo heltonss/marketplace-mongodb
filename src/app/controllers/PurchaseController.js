@@ -6,13 +6,6 @@ const Queue = require('../services/Queue')
 
 class PurchaseController {
 
-
-  // async index(req, res) {
-  //   const ad = await
-
-  //   return res.json(ad)
-  // }
-
   async store(req, res) {
     const { ad, content } = req.body
 
@@ -25,13 +18,17 @@ class PurchaseController {
       content
     }).save()
 
-    const purchase = await Purchase.create(req.body)
+    const purchase = await Purchase.create({
+      content,
+      ad,
+      user: user._id
+    })
 
     return res.json(purchase)
   }
 
   async index(req, res) {
-    const purchase = await Purchase.find().populate('ad')
+    const purchase = await Purchase.find().populate(['ad', 'user'])
 
     return res.json(purchase)
   }
