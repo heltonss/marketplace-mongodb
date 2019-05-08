@@ -13,6 +13,9 @@ routes.use(authMiddleware)
 
 routes.get('/ads', controllers.AdController.index)
 routes.post('/ads', controllers.AdController.store)
+routes.get('/ads/:id', controllers.AdController.show)
+routes.put('/ads/:id', controllers.AdController.update)
+routes.delete('/ads/:id', controllers.AdController.destroy)
 
 //purchase
 routes.post('/purchases', controllers.PurchaseController.store)
