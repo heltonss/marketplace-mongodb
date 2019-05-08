@@ -21,6 +21,7 @@ routes.delete('/ads/:id', handle(controllers.AdController.destroy))
 
 // purchase
 routes.post('/purchases', validate(validators.Purchase), handle(controllers.PurchaseController.store))
+routes.get('/purchases', handle(controllers.PurchaseController.index))
 
 routes.get('/', (req, res) => {
   res.json({ hello: 'hello world' })
